@@ -1,12 +1,12 @@
 {
     "src/**/*.{js, jsx}": [
-        "yarn format",
-        "yarn lint",
+        "lerna run format",
+        "lerna run lint",
         "git add"
     ],
     "src/**/*.{ts, tsx}": [
-        "yarn format",
-        "yarn lint",
+        "lerna run format",
+        "lerna run lint",
         "git add"
     ],
 }

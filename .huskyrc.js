@@ -2,6 +2,6 @@ const tasks = (...arr) => arr.join(' && ');
 
 module.exports = {
   hooks: {
-    'pre-commit': tasks('yarn test', 'yarn format', 'yarn lint', 'yarn build'),
+    'pre-commit': tasks('lerna run test', 'lerna run format', 'lerna run lint', 'lerna run build'),
   },
 };
