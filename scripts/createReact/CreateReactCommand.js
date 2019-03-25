@@ -48,7 +48,7 @@ class CreateCommand extends BaseCommand {
     this.generateFile(SRC_PATH, 'index.test.ts', DATA);
     this.generateFile(SRC_PATH, 'index.mdx', DATA);
 
-    if (!this.silent) this.$info('\nUpdating package.json...\n');
+    if (!this.silent) this.$info('\nUpdating package.json...');
     const packageJson = JSON.parse(this.loadContentsFrom('package.json'));
     if (packageJson.scripts) {
       packageJson.scripts[this.name] = `cd ./packages/${this.name}; yarn`;

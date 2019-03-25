@@ -1,15 +1,24 @@
-const { BaseCommand } = require('node-assistant');
-
+const exec = require('child_process').exec;
 const { STUB_PATH, generatePaths } = require('./constants');
+const { BaseCommand, createFile } = require('node-assistant');
 
 class CreateCommand extends BaseCommand {
   generateFile(path, name, data) {
-    if (!this.silent) this.$info(`• Creating ${name} file...`);
     this.createFile(`${path}/${name}`, `${STUB_PATH}/${name}.stub`, data);
 
     if (!this.silent) {
-      this.$success(`✓ Successfully created ${name} at '${path}/${name}'`);
+      this.$success(`|- ${path}/${name}`);
     }
+  }
+
+  native(cmd, callback) {
+    const ex = exec(cmd, callback);
+    ex.stdout.on('message', function(data) {
+      console.log(data);
+    });
+    ex.stdout.on('data', function(data) {
+      console.log(data);
+    });
   }
 
   run() {
@@ -34,7 +43,7 @@ class CreateCommand extends BaseCommand {
     this.generateFile(MAIN_PATH, 'README.md', DATA);
     this.generateFile(MAIN_PATH, 'tsconfig.json', DATA);
 
-    if (!this.silent) this.$info('\nUpdating package.json...\n');
+    if (!this.silent) this.$info('\nUpdating package.json...');
     const packageJson = JSON.parse(this.loadContentsFrom('package.json'));
     if (packageJson.scripts) {
       packageJson.scripts[this.name] = `cd ./packages/${this.name}; yarn`;
