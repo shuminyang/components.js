@@ -1,0 +1,11 @@
+---
+name: Main
+route: /
+---
+
+# @components.js/{{ NAME }}
+
+![npm (scoped)](https://img.shields.io/npm/v/@components.js/{{ NAME }}.svg?label=release%20version) <span />
+![GitHub](https://img.shields.io/github/license/olavoasantos/components.js.svg?label=license) <span />
+![GitHub issues by-label](https://img.shields.io/github/issues/olavoasantos/components.js/@{{ NAME }}.svg?label=issues) <span />
+![GitHub pull requests by-label](https://img.shields.io/github/issues-pr/olavoasantos/components.js/@{{ NAME }}.svg?label=issues) <span />

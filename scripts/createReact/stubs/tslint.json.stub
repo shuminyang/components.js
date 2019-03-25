@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-airbnb", "tslint-config-prettier", "tslint-react"],
+  "rulesDirectory": ["tslint-plugin-prettier"],
+  "rules": {
+    "quotemark": [true, "single", "jsx-double", "avoid-escape", "avoid-template"],
+    "import-name": [false],
+    "interface-name": false,
+    "jsx-boolean-value": ["error", "never"],
+    "variable-name": false,
+    "object-literal-sort-keys": false,
+    "no-reference": false,
+    "jsx-no-multiline-js": ["error", "never"]
+  }
+}

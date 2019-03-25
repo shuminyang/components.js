@@ -1,0 +1,26 @@
+// tslint:disable
+/**
+ * Import package the node-assitant package
+ */
+const CLI = require('node-assistant').default;
+
+/**
+ * Initialize commands
+ * This is the place where you can initialize your commands.
+ * First import the command file, and then add it
+ * to the Commands array.
+ */
+const CreateCommand = require('./scripts/create/CreateCommand');
+const CreateReactCommand = require('./scripts/createReact/CreateReactCommand');
+
+const Commands = [
+  CreateCommand,
+  CreateReactCommand,
+];
+
+/**
+ * Initialize CLI
+ * This line effectively register the list of custom
+ * commands and then executes the process.
+ */
+CLI.registerCommands(Commands).exec();
