@@ -1,7 +1,7 @@
 ---
 name: Enhancement request
 about: Suggest an idea to make this project better
-title: 'ENHANCEMENT: '
+title: 'ENHANCEMENT({package name}): '
 labels: enhancement
 assignees: ''
 
@@ -10,7 +10,7 @@ assignees: ''
 **DISCLAIMER** If your issue fails to follow this layout it will be closed.
 
 RULES:
-- Naming convention should be: ENHANCEMENT: {Brief description of the enhancement}
+- Naming convention should be: ENHANCEMENT({package name}): {Brief description of the enhancement}
 - Topics followed by an asterisk (*) are required and SHOULD NOT be removed
 - Topics without asterisk are optional and, if empty, should be deleted
 -->

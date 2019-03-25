@@ -1,7 +1,7 @@
 ---
 name: Base project
 about: Create PR for the base project
-title: 'SWOP-{#}: {Brief description of issue}'
+title: 'BASE: {Brief description of issue}'
 labels: @base
 assignees: ''
 
@@ -10,7 +10,7 @@ assignees: ''
 **DISCLAIMER** If your issue fails to follow this layout it will be closed.
 
 RULES:
-- Naming convention should be: SWOP-{#}: {Brief description of issue}
+- Naming convention should be: BASE: {Brief description of issue}
 - Topics followed by an asterisk (*) are required and SHOULD NOT be removed
 - Topics without asterisk are optional and, if empty, should be deleted
 -->
