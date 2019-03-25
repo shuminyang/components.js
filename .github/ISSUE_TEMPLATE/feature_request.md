@@ -12,7 +12,7 @@ assignees: ''
 RULES:
 - Naming convention should be: FEATURE({package name}): {Brief description of the feature}
 - Topics followed by an asterisk (*) are required and SHOULD NOT be removed
-- Topics without asterisk are optional and, if empty, should be deleted
+- Topics without an asterisk are optional and, if empty, should be deleted
 -->
 
 ## Description*
