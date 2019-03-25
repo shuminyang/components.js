@@ -18,12 +18,40 @@ class CreateCommand extends BaseCommand {
       NAME: this.name,
     };
 
+    if (!this.silent) {
+      this.$info('\n@components.js CLI - by Olavo Amorim Santos');
+      this.$info('Creating new package\n');
+    }
+
+    if (!this.silent) {
+      this.$info(`@components.js/${this.name} (${MAIN_PATH})`);
+    }
+
     this.generateFile(SRC_PATH, 'index.ts', DATA);
     this.generateFile(SRC_PATH, 'index.test.ts', DATA);
     this.generateFile(MAIN_PATH, 'jest.config.json', DATA);
     this.generateFile(MAIN_PATH, 'package.json', DATA);
     this.generateFile(MAIN_PATH, 'README.md', DATA);
     this.generateFile(MAIN_PATH, 'tsconfig.json', DATA);
+
+    if (!this.silent) this.$info('\nUpdating package.json...\n');
+    const packageJson = JSON.parse(this.loadContentsFrom('package.json'));
+    if (packageJson.scripts) {
+      packageJson.scripts[this.name] = `cd ./packages/${this.name}; yarn`;
+    } else {
+      packageJson.scripts = { [this.name]: `cd ./packages/${this.name}; yarn` };
+    }
+
+    createFile('package.json', JSON.stringify(packageJson, null, 2), {});
+
+    if (this.install) {
+      if (!this.silent) this.$info('\nInstalling dependencies...\n');
+      this.native(`(cd ${MAIN_PATH} ; yarn)`, () => {
+        if (!this.silent) {
+          this.$info('All done! Now go build something awesome\n');
+        }
+      });
+    }
   }
 }
 
@@ -35,7 +63,7 @@ CreateCommand.OPTIONS = [
 ];
 
 CreateCommand.FLAGS = [
-  // { name: 'FLAG NAME', alias: 'FLAG ALIAS', description: 'FLAG DESCRIPTION', default: 'FLAG DEFAULT VALUE' },
+  { name: 'install', alias: 'i', description: 'Automatically install dependencies', default: true },
 ];
 
 module.exports = CreateCommand;

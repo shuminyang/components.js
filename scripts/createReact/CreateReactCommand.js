@@ -27,36 +27,28 @@ class CreateCommand extends BaseCommand {
       NAME: this.name,
     };
 
-    // if (!this.silent) {
-    //   this.$info('\n@components.js CLI - by Olavo Amorim Santos');
-    //   this.$info('Creating new React.js package\n');
-    // }
+    if (!this.silent) {
+      this.$info('\n@components.js CLI - by Olavo Amorim Santos');
+      this.$info('Creating new React.js package\n');
+    }
 
-    // if (!this.silent) {
-    //   this.$info(`@components.js/${this.name} (${MAIN_PATH})`);
-    // }
+    if (!this.silent) {
+      this.$info(`@components.js/${this.name} (${MAIN_PATH})`);
+    }
 
-    // this.generateFile(MAIN_PATH, '.babelrc', DATA);
-    // this.generateFile(MAIN_PATH, 'doczrc.js', DATA);
-    // this.generateFile(MAIN_PATH, 'jest.config.json', DATA);
-    // this.generateFile(MAIN_PATH, 'package.json', DATA);
-    // this.generateFile(MAIN_PATH, 'README.md', DATA);
-    // this.generateFile(MAIN_PATH, 'tsconfig.json', DATA);
-    // this.generateFile(MAIN_PATH, 'tslint.json', DATA);
-    // this.generateFile(MAIN_PATH, 'webpack.config.js', DATA);
-    // this.generateFile(SRC_PATH, 'index.ts', DATA);
-    // this.generateFile(SRC_PATH, 'index.test.ts', DATA);
-    // this.generateFile(SRC_PATH, 'index.mdx', DATA);
+    this.generateFile(MAIN_PATH, '.babelrc', DATA);
+    this.generateFile(MAIN_PATH, 'doczrc.js', DATA);
+    this.generateFile(MAIN_PATH, 'jest.config.json', DATA);
+    this.generateFile(MAIN_PATH, 'package.json', DATA);
+    this.generateFile(MAIN_PATH, 'README.md', DATA);
+    this.generateFile(MAIN_PATH, 'tsconfig.json', DATA);
+    this.generateFile(MAIN_PATH, 'tslint.json', DATA);
+    this.generateFile(MAIN_PATH, 'webpack.config.js', DATA);
+    this.generateFile(SRC_PATH, 'index.ts', DATA);
+    this.generateFile(SRC_PATH, 'index.test.ts', DATA);
+    this.generateFile(SRC_PATH, 'index.mdx', DATA);
 
-    // if (this.install) {
-    //   if (!this.silent) this.$info('\nInstalling dependencies...\n');
-    //   this.native(`(cd ${MAIN_PATH} ; yarn)`, () => {
-    //     if (!this.silent) {
-    //       this.$info('All done! Now go build something awesome\n');
-    //     }
-    //   });
-    // }
-
+    if (!this.silent) this.$info('\nUpdating package.json...\n');
     const packageJson = JSON.parse(this.loadContentsFrom('package.json'));
     if (packageJson.scripts) {
       packageJson.scripts[this.name] = `cd ./packages/${this.name}; yarn`;
@@ -65,6 +57,15 @@ class CreateCommand extends BaseCommand {
     }
 
     createFile('package.json', JSON.stringify(packageJson, null, 2), {});
+
+    if (this.install) {
+      if (!this.silent) this.$info('\nInstalling dependencies...\n');
+      this.native(`(cd ${MAIN_PATH} ; yarn)`, () => {
+        if (!this.silent) {
+          this.$info('All done! Now go build something awesome\n');
+        }
+      });
+    }
   }
 }
 
