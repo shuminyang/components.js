@@ -3,7 +3,8 @@
   "description": "UI kit for your application",
   "version": "0.0.1",
   "scripts": {
-    "assistant": "node assistant"
+    "assistant": "node assistant",
+    "react": "cd ./packages/react; yarn"
   },
   "author": {
     "name": "Olavo Amorim Santos",

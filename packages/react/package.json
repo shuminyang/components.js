@@ -1,0 +1,51 @@
+{
+  "name": "@components.js/react",
+  "version": "0.0.1",
+  "description": "",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": {
+    "name": "Olavo Amorim Santos",
+    "email": "olavo.a.santos@gmail.com"
+  },
+  "scripts": {
+    "build": "webpack",
+    "lint": "tslint -p tsconfig.json",
+    "test": "jest --config jest.config.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "docs:dev": "yarn docz dev",
+    "docs:build": "docz build --base /node-factory/",
+    "docs:deploy": "yarn docs:build && gh-pages -d .docz/dist"
+  },
+  "directories": {
+    "lib": "src"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olavoasantos/components.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/olavoasantos/component.js/issues?q=is:issue+is:open+label:@react"
+  },
+  "dependencies": {
+    "react": "^16.8.4"
+  },
+  "devDependencies": {
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7",
+    "docz-plugin-css": "^0.11.0",
+    "@types/react": "^16.8.2",
+    "@babel/preset-react": "^7.0.0",
+    "jest-css-modules-transform": "^2.1.1",
+    "react-hot-loader": "^4.7.0",
+    "react-testing-library": "^5.8.0",
+    "tslint-react": "^3.6.0"
+  }
+}
