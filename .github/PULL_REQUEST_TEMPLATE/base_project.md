@@ -22,3 +22,7 @@ RULES:
 ## Other info
 
 <!-- Add any other context about the problem here. -->
+
+## Issue
+
+<!-- Add a reference to the related issue. (e.g. Closes #123) -->
