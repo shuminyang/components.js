@@ -2,7 +2,7 @@ const exec = require('child_process').exec;
 const { BaseCommand, createFile } = require('node-assistant');
 const { STUB_PATH, generatePaths } = require('./constants');
 
-class CreateCommand extends BaseCommand {
+class CreateReactCommand extends BaseCommand {
   generateFile(path, name, data) {
     this.createFile(`${path}/${name}`, `${STUB_PATH}/${name}.stub`, data);
 
@@ -69,15 +69,15 @@ class CreateCommand extends BaseCommand {
   }
 }
 
-CreateCommand.COMMAND = 'create:react';
-CreateCommand.DESCRIPTION = 'Create a new react package';
+CreateReactCommand.COMMAND = 'create:react';
+CreateReactCommand.DESCRIPTION = 'Create a new react package';
 
-CreateCommand.OPTIONS = [
+CreateReactCommand.OPTIONS = [
   { name: 'name', description: 'The package\'s name' },
 ];
 
-CreateCommand.FLAGS = [
+CreateReactCommand.FLAGS = [
   { name: 'install', alias: 'i', description: 'Automatically install dependencies', default: true },
 ];
 
-module.exports = CreateCommand;
+module.exports = CreateReactCommand;
