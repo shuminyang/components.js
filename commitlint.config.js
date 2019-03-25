@@ -18,17 +18,14 @@ module.exports = {
 			'always',
 			[
         'ENHANCEMENT',
-				'build',
-				'chore',
-				'ci',
-				'docs',
-				'feat',
-				'fix',
-				'perf',
-				'refactor',
-				'revert',
-				'style',
-				'test'
+				'DOCS',
+				'FEATURE',
+				'FIX',
+				'PERFORMANCE',
+				'REFACTOR',
+				'REVERT',
+				'STYLE',
+				'TEST'
 			]
 		]
   }
