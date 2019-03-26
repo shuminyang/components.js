@@ -5,7 +5,7 @@ echo "@components.js - Develop script - v0.0.1"
 echo ""
 
 echo "- Reading env..."
-source scripts/ci/env.sh
+source ./scripts/ci/env.sh
 
 echo "- Checking incoming branch..."
 [[ $TRAVIS_BRANCH =~ ^develop-(.*)$ ]] && PACKAGE_NAME=${BASH_REMATCH[1]}
@@ -16,4 +16,4 @@ then
 fi
 
 # Check package
-bash scripts/ci/checkPackage.sh $PACKAGE_NAME
+bash ./scripts/ci/checkPackage.sh $PACKAGE_NAME

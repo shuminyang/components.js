@@ -5,7 +5,7 @@ echo "@components.js - Master script - v0.0.1"
 echo ""
 
 echo "- Reading env..."
-source scripts/ci/env.sh
+source ./scripts/ci/env.sh
 
 echo "- Checking incoming branch..."
 [[ $TRAVIS_PULL_REQUEST_BRANCH =~ ^staging-(.*)$ ]] && BASH_REMATCH
@@ -16,7 +16,7 @@ then
 fi
 
 # Check package
-bash scripts/ci/checkPackage.sh $PACKAGE_NAME
+bash ./scripts/ci/checkPackage.sh $PACKAGE_NAME
 
 echo "- Updating packages..."
 for PACKAGE in ${PACKAGES[@]}; do

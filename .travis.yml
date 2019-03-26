@@ -9,25 +9,25 @@ script:
   # On PR
   - provider: script
     if: type = pull_request
-    script: bash scripts/ci/pr.sh
+    script: bash ./scripts/ci/pr.sh
 
   # On push to master
   - provider: script
     if: type = push
-    script: bash scripts/ci/master.sh
+    script: bash ./scripts/ci/master.sh
     on:
       branch: master
 
   # On push to staging
   - provider: script
     if: type = push
-    script: bash scripts/ci/staging.sh
+    script: bash ./scripts/ci/staging.sh
     on:
       branch: /^staging-.*$/
 
   # On push to develop
   - provider: script
     if: type = push
-    script: bash scripts/ci/develop.sh
+    script: bash ./scripts/ci/develop.sh
     on:
       branch: /^develop-.*$/

@@ -5,7 +5,7 @@ echo "@components.js - PR script - v0.0.1"
 echo ""
 
 echo "- Reading env..."
-source scripts/ci/env.sh
+source ./scripts/ci/env.sh
 
 echo "- Checking incoming branch..."
 TO_LOWER_CASE=$(echo "$TRAVIS_PULL_REQUEST_BRANCH" | tr '[:upper:]' '[:lower:]')
@@ -17,4 +17,4 @@ then
 fi
 
 # Check package
-bash scripts/ci/checkPackage.sh $PACKAGE_NAME
+bash ./scripts/ci/checkPackage.sh $PACKAGE_NAME
