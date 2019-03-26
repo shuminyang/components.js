@@ -17,4 +17,4 @@ then
 fi
 
 # Check package
-bash ./scripts/ci/checkPackage.sh $PACKAGE_NAME
+./scripts/ci/checkPackage.sh $PACKAGE_NAME
