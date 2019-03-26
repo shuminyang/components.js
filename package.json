@@ -3,6 +3,7 @@
   "description": "UI kit for your application",
   "version": "0.0.1",
   "scripts": {
+    "base": "lerna run",
     "assistant": "node assistant",
     "react": "cd ./packages/react; yarn"
   },
