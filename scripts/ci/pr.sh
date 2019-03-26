@@ -8,8 +8,16 @@ echo "- Reading env..."
 source ./scripts/ci/env.sh
 
 echo "- Checking incoming branch..."
-TO_LOWER_CASE=$(echo "$TRAVIS_PULL_REQUEST_BRANCH" | tr '[:upper:]' '[:lower:]')
-[[ $TO_LOWER_CASE =~ ^.+\((.*)\).*$ ]] && PACKAGE_NAME=${BASH_REMATCH[1]}
+if [[ ! -z "$TRAVIS_BRANCH" ]]
+then
+  TO_LOWER_CASE=$(echo "$TRAVIS_BRANCH" | tr '[:upper:]' '[:lower:]')
+  [[ $TO_LOWER_CASE =~ ^.+\((.*)\).*$ ]] && PACKAGE_NAME=${BASH_REMATCH[1]}
+elif [[ ! -z "$TRAVIS_PULL_REQUEST_BRANCH" ]]
+then
+  TO_LOWER_CASE=$(echo "$TRAVIS_PULL_REQUEST_BRANCH" | tr '[:upper:]' '[:lower:]')
+  [[ $TO_LOWER_CASE =~ ^.+\((.*)\).*$ ]] && PACKAGE_NAME=${BASH_REMATCH[1]}
+fi
+
 if [ -z "$PACKAGE_NAME" ]
 then
   echo "[FAIL] Invalid request branch"

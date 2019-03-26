@@ -6,28 +6,3 @@ node_js:
 cache: yarn
 
 script: bash ./scripts/ci/run.sh
-  # On PR
-  # - provider: script(
-  #   if: type = pull_request
-  #   script: ./scripts/ci/pr.sh
-
-  # # On push to master
-  # - provider: script
-  #   if: type = push
-  #   script: ./scripts/ci/master.sh
-  #   on:
-  #     branch: master
-
-  # # On push to staging
-  # - provider: script
-  #   if: type = push
-  #   script: ./scripts/ci/staging.sh
-  #   on:
-  #     branch: /^staging-.*$/
-
-  # # On push to develop
-  # - provider: script
-  #   if: type = push
-  #   script: ./scripts/ci/develop.sh
-  #   on:
-  #     branch: /^develop-.*$/)
