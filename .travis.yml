@@ -5,7 +5,7 @@ node_js:
 
 cache: yarn
 
-script: ./scripts/ci/run.sh
+script: bash ./scripts/ci/run.sh
   # On PR
   # - provider: script(
   #   if: type = pull_request
